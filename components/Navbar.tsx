@@ -17,7 +17,7 @@ const Navbar = () => {
         setIsSidebarOpen(prevState => !prevState);
     }
     return (
-        <nav className="w-full h-[100px] bg-black fixed z-10 text-white">
+        <nav className="w-full h-[100px] bg-black fixed z-20 text-white">
             <div className="absolute my-2 left-10 md:left-10 lg:left-10 xl:left-30 2xl:left-30 z-2">
                 <Image src={logo} alt={"lexi_logo"} width={65} className="mt-3" />
             </div>

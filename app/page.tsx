@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import HomePage from "@/components/Home";
 import Reviews from "@/components/Reviews";
+import AboutUs from "@/components/AboutUs";
 
 export default function Home() {
   return (
@@ -10,6 +10,7 @@ export default function Home() {
       <main className="w-full h-full">
           <HomePage/>
           <Reviews/>
+          <AboutUs/>
       </main>
     </div>
   );
