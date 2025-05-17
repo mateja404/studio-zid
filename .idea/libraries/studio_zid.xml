@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="studio-zid">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/studio-zid.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
