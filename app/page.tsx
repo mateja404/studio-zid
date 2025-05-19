@@ -4,7 +4,7 @@ import Reviews from "@/components/Reviews";
 import AboutUs from "@/components/AboutUs";
 import OurServices from "@/components/OurServices";
 import SpecificneUsluge from "@/components/SpecificneUsluge";
-import {Speaker} from "lucide-react";
+import OurProjects from "@/components/OurProjects";
 
 export default function Home() {
   return (
@@ -16,6 +16,7 @@ export default function Home() {
           <AboutUs/>
           <OurServices/>
           <SpecificneUsluge/>
+          <OurProjects/>
       </main>
     </div>
   );
