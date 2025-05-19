@@ -5,6 +5,8 @@ import AboutUs from "@/components/AboutUs";
 import OurServices from "@/components/OurServices";
 import SpecificneUsluge from "@/components/SpecificneUsluge";
 import OurProjects from "@/components/OurProjects";
+import Gallery from "@/components/Gallery";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,6 +19,8 @@ export default function Home() {
           <OurServices/>
           <SpecificneUsluge/>
           <OurProjects/>
+          <Gallery/>
+          <Footer/>
       </main>
     </div>
   );
