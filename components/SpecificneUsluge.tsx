@@ -12,7 +12,7 @@ const SpecificneUsluge = () => {
             </div>
             <div className="w-full h-1/2 relative">
                 <div className="flex flex-col xl:flex-row w-full h-[200px]">
-                    <ul className="flex flex-col -mt-100 sm:gap-y-5 max-sm:gap-y-10 xl:flex-row w-full pl-10 pr-10 gap-x-3">
+                    <ul className="flex flex-col sm:gap-y-5 max-sm:gap-y-10 xl:flex-row w-full pl-10 pr-10 gap-x-3">
                         <li className="flex flex-col gap-y-4 text-2xl"><span className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full"><MoveDownRight/></span>Proračun potrebne količine boje za vaš prostor (koliko boje za m2)</li>
                         <li className="flex flex-col gap-y-4 text-2xl"><span className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full"><MoveDownRight/></span>Pomoć pri odabiru zidnih tehnika</li>
                         <li className="flex flex-col gap-y-4 text-2xl"><span className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full"><MoveDownRight/></span>Konsultacije oko izbora najboljih materijala</li>

@@ -25,6 +25,10 @@ const userSchema = new Schema<IUser>(
             type: String,
             required: false
         },
+        avatar: {
+            type: String,
+            required: false
+        }
     },
     { timestamps: true }
 );
