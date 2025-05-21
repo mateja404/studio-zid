@@ -65,8 +65,10 @@ const Reviews = () => {
                 {currentTestimonials.map((review, index) => (
                     <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center">
                         <Image
-                            src={review.image}
+                            src={`https://lh3.googleusercontent.com/a/ACg8ocKxg5wuoBb4_xnbrasgIczFUOt8w9g5-X-JqWVleEz-NBjVXQ=s96-c`}
                             alt={`${review.name} profile picture`}
+                            width={50}
+                            height={50}
                             className="rounded-full mb-10 -mt-15 w-[80px] h-[80px]"
                         />
                         <h3 className="text-lg font-semibold text-gray-800">{review.name}</h3>

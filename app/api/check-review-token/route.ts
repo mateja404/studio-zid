@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import connect from "@/app/utils/db";
 import activatedLink from "@/models/ActivatedLink";
 
-async function POST(req: NextRequest) {
+export async function POST(req: NextRequest) {
     const { token } = await req.json();
     await connect();
 
