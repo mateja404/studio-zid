@@ -2,7 +2,6 @@ import GoogleProvider from "next-auth/providers/google";
 import NextAuth from "next-auth";
 import User from "@/models/User";
 import connect from "@/app/utils/db";
-import { NextResponse } from "next/server";
 
 const authOptions = {
     providers: [
