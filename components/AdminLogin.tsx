@@ -32,6 +32,7 @@ const AdminLogin = () => {
         <div className="flex items-center justify-center w-full h-screen bg-white">
             <Toaster/>
             <div>
+                <h1 className="mb-15 text-center text-2xl">Unesite tačnu šifru</h1>
                 <InputOTP maxLength={6} value={passkey} onChange={(value) => setPasskey(value)}>
                     <InputOTPGroup className="w-full flex justify-between gap-x-2">
                         <InputOTPSlot className="w-[50px] h-[50px] border border-slate-500 rounded-lg gap-4" index={0} />
@@ -45,7 +46,7 @@ const AdminLogin = () => {
                         <InputOTPSlot className="w-[50px] h-[50px] border border-slate-500 rounded-lg gap-4" index={5} />
                     </InputOTPGroup>
                 </InputOTP>
-                <Button onClick={(e) => checkPasskeyMatching(e)}>Submit</Button>
+                <Button onClick={(e) => checkPasskeyMatching(e)} className="mt-10 w-full hover:cursor-pointer">Potvrdi</Button>
             </div>
         </div>
     );

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Studio Zid | Početna",
-  description: "Studio Zid - Molerski radovi bez stresa | Jasni dogovori, precizni rokovi, kulturna komunikacija i urednost",
+  description: "Studio Zid Novi Sad - vaš pouzdan izbor za molerske radove, dekorativne tehnike, gipsane i fasadne radove. Kulturan tim i precizna procena troskova. Mogucnost izvodjenja radova i u drugim delovima Srbije.",
 };
 
 export default function RootLayout({
