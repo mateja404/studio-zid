@@ -11,13 +11,15 @@ const AboutUs = () => {
                 src={onamabg}
                 alt={"O nama"}
                 className="w-full h-full object-cover absolute top-0 left-0 z-0 opacity-[0.2]"
+                quality={80}
+                loading={"lazy"}
             />
             <div className="w-full h-1/2 z-10 flex items-center justify-center relative">
                 <h1 className="absolute xl:left-[8%] 2xl:top-[30%] top-[20%] text-7xl xl:text-[150px] text-white">O NAMA</h1>
             </div>
             <div
                 className="w-full h-1/2 mt-70 xl:mt-0 2xl:mt-0 z-10 flex items-center justify-center text-center relative">
-                <Image src={slikamene} alt={"Slika mene"} className="absolute bottom-[120%] xl:top-[10%] w-[200px]"/>
+                <Image src={slikamene} alt={"Slika mene"} className="absolute bottom-[120%] xl:top-[10%] w-[200px]" quality={80} loading={"lazy"}/>
                 <p className="absolute bottom-[90%] md:bottom-[20%] xl:top-[175%] 2xl:top-[180%] text-white text-2xl">“Mi postujemo vas prostor i vreme” <br/> Milan - osnivac Studia ZID</p>
             </div>
             <div className="w-[100vw] flex h-[300px] z-2">

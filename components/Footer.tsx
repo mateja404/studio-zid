@@ -8,12 +8,12 @@ import { Button } from "@/components/ui/button";
 
 const Footer = () => {
     return (
-        <footer className="clear-both w-full h-[500px] max-sm:h-[1200px] relative flex flex-col">
-            <Image src={footer_bg} alt={"Footer background"} className="w-full h-full object-cover absolute top-0 left-0 z-0"/>
+        <footer className="clear-both w-full h-[550px] max-sm:h-[1200px] relative flex flex-col">
+            <Image src={footer_bg} alt={"Footer background"} className="w-full h-full object-cover absolute top-0 left-0 z-0" quality={80} loading={"lazy"}/>
             <div className="w-full md:w-1/2 h-[80%] absolute top-0 flex flex-col pl-10">
-                <Image alt={"Logo"} src={logo} className="w-27 absolute top-2" />
-                <p className="absolute top-30 md:bottom-[20%] text-xl">Studio Zid - profesionalni izvođači molerskih radova u Novom Sadu i okolini. Naš tim se specijalizuje za sve vrste molerskih i gipsarskih radova, uključujući kvalitetno gletovanje, krečenje, dekorativne zidne tehnike i spuštene plafone. Bilo da renovirate stan, kuću ili poslovni prostor, garantujemo jasne cene, precizne rokove i vrhunski kvalitet izvođenja. Za sve informacije o uslugama i besplatnu procenu radova, kontaktirajte nas putem telefona ili forme na sajtu. Studio Zid - stvaramo prostore kojima se ponosite.</p>
-                <div className="absolute mt-100 md:bottom-0 w-full h-[100px] flex flex-col top-10 gap-y-2 md:flex-row md:items-center md:justify-center gap-x-10">
+                <Image alt={"Logo"} src={logo} className="w-27 absolute top-2" quality={80} loading={"lazy"}/>
+                <p className="absolute top-30 md:bottom-[20%] text-xl ">Studio Zid - profesionalni izvođači molerskih radova u Novom Sadu i okolini. Naš tim se specijalizuje za sve vrste molerskih i gipsarskih radova, uključujući kvalitetno gletovanje, krečenje, dekorativne zidne tehnike i spuštene plafone. Bilo da renovirate stan, kuću ili poslovni prostor, garantujemo jasne cene, precizne rokove i vrhunski kvalitet izvođenja. Za sve informacije o uslugama i besplatnu procenu radova, kontaktirajte nas putem telefona ili forme na sajtu. Studio Zid - stvaramo prostore kojima se ponosite.</p>
+                <div className="absolute mt-100 max-sm:mt-130 md:bottom-0 w-full h-[100px] flex flex-col top-10 gap-y-2 md:flex-row md:items-center md:justify-center gap-x-10">
                     <Link href="tel:0637236049" className="text-2xl md:absolute left-0">063/723-60-49 Milan</Link>
                     <Link href="mailto:info@studiozid.com" className="text-2xl">info@studiozid.rs</Link>
                 </div>
@@ -27,7 +27,7 @@ const Footer = () => {
                     <li className="text-3xl"><Link href="#">Naši Projekti</Link></li>
                     <li className="text-3xl"><Link href="#">Galerija</Link></li>
                 </ul>
-                <div className="w-full bottom-0 max-sm:-mt-100 md:w-1/2 md:h-[100%] absolute md:top-10 right-0 text-center z-2">
+                <div className="w-full bottom-0 max-sm:translate-y-35 md:w-1/2 md:h-[100%] absolute md:top-10 right-0 text-center z-2">
                     <h3 className="text-4xl">Pitajte Nas</h3>
                     <p className="text-3xl mt-10">Tu smo da vam pomognemo</p>
                     <form className="gap-y-4 flex-col flex mt-10">

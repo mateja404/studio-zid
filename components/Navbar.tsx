@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <nav className="w-full h-[100px] bg-black fixed z-20 text-white">
             <div className="absolute my-2 left-10 md:left-10 lg:left-10 xl:left-30 2xl:left-30 z-2">
-                <Image src={logo} alt={"lexi_logo"} width={65} className="mt-3" />
+                <Image src={logo} alt={"lexi_logo"} width={65} className="mt-3" quality={80} loading={"lazy"}/>
             </div>
             <div className="absolute my-10 md:right-10 lg:right-10 xl:right-20 2xl:right-30 2xl:flex xl:flex lg:flex md:flex sm:hidden max-sm:hidden flex">
                 <ul className="flex flex-row justify-between gap-17">

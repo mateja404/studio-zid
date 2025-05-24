@@ -5,7 +5,7 @@ import nase_usluge from "@/public/PozadinaNaseUsluge.png";
 const OurServices = () => {
     return (
         <section className="w-full h-[1000px] 2xl:h-[800px] bg-black text-white relative flex flex-col border-3 border-l-transparent border-r-transparent border-t-[#88664d] border-b-[#88664d]">
-            <Image src={nase_usluge} alt={"Nase usluge"} className="w-full h-full object-cover absolute top-0 left-0 z-0 opacity-[0.2]"/>
+            <Image src={nase_usluge} alt={"Nase usluge"} className="w-full h-full object-cover absolute top-0 left-0 z-0 opacity-[0.2]" quality={80} loading={"lazy"}/>
             <div className="w-full h-1/3 2xl:h-1/2">
                 <h1 className="mt-15 2xl:mt-0 text-6xl 2xl:text-8xl 2xl:absolute 2xl:top-[5%] 2xl:left-[5%] text-center 2xl:text-start">Nаše <br/> Usluge</h1>
             </div>
