@@ -1,13 +1,17 @@
 import { useState } from "react";
+import { FaStar, FaRegStar } from 'react-icons/fa';
 
-const StarRating = () => {
-    const [rating, setRating] = useState(0);
+interface StarRatingProps {
+    rating: number;
+    onRatingChange: (rating: number) => void;
+}
 
-    const handleStarClick = (index: any) => {
+const StarRating = ({ rating, onRatingChange }: StarRatingProps) => {
+    const handleStarClick = (index: number) => {
         if (rating === index + 1) {
-            setRating(rating - 1);
+            onRatingChange(rating > 1 ? rating - 1 : 1);
         } else {
-            setRating(index + 1);
+            onRatingChange(index + 1);
         }
     };
 
@@ -18,11 +22,11 @@ const StarRating = () => {
                     key={index}
                     onClick={() => handleStarClick(index)}
                     style={{ color: index < rating ? "#ffc107" : "#e4e5e9" }}
+                    className="inline-flex"
                 >
-          {index < rating ? "★" : "☆"}
-        </span>
+                    {index < rating ? <FaStar /> : <FaRegStar />}
+                </span>
             ))}
-            <p>Trenutna ocena: {rating}</p>
         </div>
     );
 };

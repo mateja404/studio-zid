@@ -2,14 +2,13 @@ import { NextRequest, NextResponse } from "next/server";
 import connect from "@/app/utils/db";
 import Review from "@/models/Review";
 import User from "@/models/User";
-import { v4 as uuidv4 } from "uuid";
 
 export async function POST(req: NextRequest) {
-    const { username, title, description, stars } = await req.json()
+    const { username, role, description, rating, userAvatar } = await req.json()
     await connect();
 
     const existingReview = await Review.findOne({ username: username });
-    const user = await User.findOne({ username: username });
+    const user = await User.findOne({ name: username });
 
     if (!user) {
         return NextResponse.json({ message: "Korisnik ne postoji u bazi" }, { status: 404 });
@@ -18,15 +17,13 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ message: "Recenzija već postoji" }, { status: 409 });
     }
 
-    const reviewId = uuidv4();
-
     const review = await Review.create({
-        reviewId: reviewId,
         username: username,
-        stars: stars,
-        description: description,
-        title: title,
-        userAvatar: user.avatar
+        userAvatar: userAvatar,
+        rating: rating,
+        role: role,
+        description: description
     });
     await review.save();
+    return NextResponse.json({ message: "Uspešno ste poslali recenziju!" }, { status: 200 });
 }
