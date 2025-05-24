@@ -26,11 +26,10 @@ const Page = () => {
         }
     }, [session, status, router]);
 
-    {/*
         useEffect(() => {
             async function checkToken() {
                 try {
-                    const res = await axios.post("http://localhost:3000/api/check-review-token", {token});
+                    const res = await axios.post("http://localhost:3000/api/check-review-token", { token: token });
                     console.log("Success:", res.status);
                     toast.success("Success")
                 } catch (error) {
@@ -45,8 +44,6 @@ const Page = () => {
 
             checkToken();
         }, []);
-        */
-    }
     return (
         <section className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
             <Toaster/>

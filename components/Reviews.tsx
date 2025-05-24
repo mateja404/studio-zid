@@ -1,52 +1,26 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import pfp from '@/public/BandWMoler.png';
-
-const testimonials = [
-    {
-        name: "Marko Petrović",
-        title: "Zadovoljan klijent",
-        text: "Rad je urađen brzo i kvalitetno. Sve preporuke!",
-        image: pfp
-    },
-    {
-        name: "Jelena Nikolić",
-        title: "Vlasnica stana",
-        text: "Profesionalno i ljubazno osoblje. Moj stan sada izgleda kao nov!",
-        image: pfp
-    },
-    {
-        name: "Ivan Jovanović",
-        title: "Investitor",
-        text: "Odlična komunikacija i još bolji rezultat. Saradnja za svaku pohvalu.",
-        image: pfp
-    },
-    {
-        name: "Ana Marković",
-        title: "Preduzetnica",
-        text: "Sve je urađeno u roku i tačno kako smo se dogovorili.",
-        image: pfp
-    },
-    {
-        name: "Nikola Ilić",
-        title: "Stambeni objekat",
-        text: "Saradnja je bila izuzetna, bez ikakvih problema. Čista desetka!",
-        image: pfp
-    },
-    {
-        name: "Sara Stojanović",
-        title: "Klijentkinja",
-        text: "Sve je bilo brzo, efikasno i tačno onako kako sam želela.",
-        image: pfp
-    }
-];
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Image from "next/image";
 
 const ITEMS_PER_PAGE = 3;
 
 const Reviews = () => {
     const [currentPage, setCurrentPage] = useState(0);
+    const [testimonials, setTestimonials] = useState<any[]>([]); // Ovdje koristimo any tip, ali možeš ga poboljšati kasnije
+
+    useEffect(() => {
+        async function getAllReviews() {
+            try {
+                const response = await axios.get("http://localhost:3000/api/get-all-reviews");
+                setTestimonials(response.data.testimonials);
+            } catch (error) {
+                console.error("Error fetching reviews:", error);
+            }
+        }
+        getAllReviews();
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -54,26 +28,34 @@ const Reviews = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [testimonials]);
 
     const startIndex = currentPage * ITEMS_PER_PAGE;
     const currentTestimonials = testimonials.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     return (
         <section className="w-full bg-[#88664d] py-16 px-4">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-700 ease-in-out">
+            <div className="max-w-7xl mx-auto grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-6 transition-all duration-700 ease-in-out">
                 {currentTestimonials.map((review, index) => (
                     <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center">
                         <Image
-                            src={`https://lh3.googleusercontent.com/a/ACg8ocKxg5wuoBb4_xnbrasgIczFUOt8w9g5-X-JqWVleEz-NBjVXQ=s96-c`}
-                            alt={`${review.name} profile picture`}
+                            src={review.userAvatar}
+                            alt={`${review.username} profile picture`}
                             width={50}
                             height={50}
                             className="rounded-full mb-10 -mt-15 w-[80px] h-[80px]"
                         />
-                        <h3 className="text-lg font-semibold text-gray-800">{review.name}</h3>
-                        <p className="text-sm text-gray-500 mb-2">{review.title}</p>
-                        <p className="italic text-gray-700">"{review.text}"</p>
+                        <h3 className="text-lg font-semibold text-gray-800">{review.username}</h3>
+                        <p className="text-sm text-gray-500 mb-2">{review.role}</p>
+                        <p className="italic text-gray-700">"{review.description}"</p>
+                        <div className="flex justify-center mt-4">
+                            {[...Array(review.rating)].map((_, i) => (
+                                <span key={i} className="text-yellow-500">★</span>
+                            ))}
+                            {[...Array(5 - review.rating)].map((_, i) => (
+                                <span key={i} className="text-gray-300">★</span>
+                            ))}
+                        </div>
                     </div>
                 ))}
             </div>
