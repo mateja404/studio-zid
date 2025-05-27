@@ -13,7 +13,7 @@ const Reviews = () => {
     useEffect(() => {
         async function getAllReviews() {
             try {
-                const response = await axios.get("http://localhost:3000/api/get-all-reviews");
+                const response = await axios.get("/api/get-all-reviews");
                 setTestimonials(response.data.testimonials);
             } catch (error) {
                 console.error("Error fetching reviews:", error);

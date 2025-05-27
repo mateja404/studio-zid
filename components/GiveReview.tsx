@@ -29,7 +29,7 @@ const GiveReview = ({ className,  ...props }: React.ComponentPropsWithoutRef<"di
         if (role?.length === 0 || description?.length === 0) {
             toast.error("Sva polja su obavezna");
         }
-        const response = await axios.post("http://localhost:3000/api/post-review", { username: session?.user?.name, role: role, description: description, rating: rating, userAvatar: session?.user?.image })
+        const response = await axios.post("/api/post-review", { username: session?.user?.name, role: role, description: description, rating: rating, userAvatar: session?.user?.image })
             .then(res => {
                 console.log(res.data);
             })

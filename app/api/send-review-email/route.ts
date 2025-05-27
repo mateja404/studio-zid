@@ -1,42 +1,57 @@
 import { NextRequest, NextResponse } from "next/server";
-import connect from "@/app/utils/db";
+import pool from "@/app/utils/db";
 import nodemailer from "nodemailer";
 import { v4 as uuidv4 } from "uuid";
-import ActivatedLink from "@/models/ActivatedLink";
 
 export async function POST(req: NextRequest) {
+  try {
     const { email } = await req.json();
-    await connect();
 
     const generatedReviewId = uuidv4();
-    const existingToken = await ActivatedLink.findOne({ reviewId: generatedReviewId });
 
-    if (existingToken) {
-        return NextResponse.json({ message: "Token je već u upotrebi" }, { status: 401 });
+    const [existingTokenRows] = await pool.query(
+      "SELECT * FROM activatedlinks WHERE reviewId = ?",
+      [generatedReviewId]
+    );
+
+    if ((existingTokenRows as any).length > 0) {
+      return NextResponse.json(
+        { message: "Token je već u upotrebi" },
+        { status: 401 }
+      );
     }
 
-    const link = await ActivatedLink.create({
-        reviewId: generatedReviewId,
-        isActivated: false
-    });
-    await link.save();
+    await pool.query(
+      "INSERT INTO activatedlinks (reviewId, isActivated) VALUES (?, ?)",
+      [generatedReviewId, false]
+    );
 
-    const reviewLink = `http://localhost:3000/review/${generatedReviewId}`
+    const reviewLink = `https://studiozid.rs/review/${generatedReviewId}`;
 
     const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: "murkoffcorp11@gmail.com",
-            pass: "bhbq gwwi ghuf rydu"
-        }
+      service: "gmail",
+      auth: {
+        user: "murkoffcorp11@gmail.com",
+        pass: "bhbq gwwi ghuf rydu",
+      },
     });
 
-    const emailDetails = await transporter.sendMail({
-        from: 'Milan Studio Zid" <maddison53@ethereal.email>',
-        to: email,
-        subject: "Studio Zid | Ocenite našu uslugu",
-        text: `Ocenite našu uslugu na sledećem linku: ${reviewLink}`
+    await transporter.sendMail({
+      from: '"Milan Studio Zid" <maddison53@ethereal.email>',
+      to: email,
+      subject: "Studio Zid | Ocenite našu uslugu",
+      text: `Ocenite našu uslugu na sledećem linku: ${reviewLink}`,
     });
 
-    return NextResponse.json({ message: "Mail je uspešno poslat" }, { status: 200 });
+    return NextResponse.json(
+      { message: "Mail je uspešno poslat" },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error u POST /api/...", error);
+    return NextResponse.json(
+      { message: "Došlo je do greške" },
+      { status: 500 }
+    );
+  }
 }

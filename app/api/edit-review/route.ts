@@ -1,27 +1,36 @@
 import { NextRequest, NextResponse } from "next/server";
-import connect from "@/app/utils/db";
-import Review from "@/models/Review";
+import pool from "@/app/utils/db";
 
-async function POST(req: NextRequest) {
-    const { reviewId, reviewDescription } = await req.json();
-    await connect();
+export async function POST(req: NextRequest) {
+  const { reviewId, reviewDescription } = await req.json();
 
-    const existingReview = await Review.findOne({ reviewId: reviewId });
-    if (!existingReview) {
-        return NextResponse.json({ message: "Nema pronadjenih recenzija" }, { status: 404 });
+  try {
+    const conn = await pool.getConnection();
+
+    const [existingReview] = await conn.query(
+      "SELECT * FROM reviews WHERE reviewId = ?",
+      [reviewId]
+    );
+
+    if ((existingReview as any).length === 0) {
+      conn.release();
+      return NextResponse.json({ message: "Nema pronadjenih recenzija" }, { status: 404 });
     }
 
-    try {
-        const update = await Review.updateOne({ reviewId: reviewId }, { description: reviewDescription });
+    const [updateResult] = await conn.query(
+      "UPDATE reviews SET description = ? WHERE reviewId = ?",
+      [reviewDescription, reviewId]
+    );
 
-        if (update.modifiedCount > 0) {
-            return NextResponse.json({ message: "Recenzija je uspesno izmenjena" }, { status: 200 });
-        } else if (update.matchedCount === 0) {
-            return NextResponse.json({ message: "Recenzija nije pronadjena" }, { status: 404 });
-        } else {
-            return NextResponse.json({ message: "Recenzija nije izmenjena" }, { status: 200 });
-        }
-    } catch (error: any) {
-        return NextResponse.json({ message: error.message }, { status: 500 });
+    conn.release();
+
+    if (updateResult.affectedRows > 0) {
+      return NextResponse.json({ message: "Recenzija je uspesno izmenjena" }, { status: 200 });
+    } else {
+      return NextResponse.json({ message: "Recenzija nije izmenjena" }, { status: 200 });
     }
+
+  } catch (error: any) {
+    return NextResponse.json({ message: error.message }, { status: 500 });
+  }
 }

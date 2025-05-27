@@ -1,16 +1,30 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import logo from "@/public/logo.png";
 import Link from "next/link";
 import { GraduationCap, House, Users } from "lucide-react";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
     const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const router = useRouter();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isActive, setIsActive] = useState(false);
+
+    useEffect(() => {
+        const login = searchParams.get("login");
+        if (login === "success") {
+            toast.success("Uspešno ste se ulogovali")
+            const newUrl = window.location.pathname;
+            router.replace(newUrl);
+        }
+    }, [searchParams, router]);
 
     function toggleMenu() {
         setIsActive(prevState => !prevState);
@@ -18,6 +32,7 @@ const Navbar = () => {
     }
     return (
         <nav className="w-full h-[100px] bg-black fixed z-20 text-white">
+            <Toaster/>
             <div className="absolute my-2 left-10 md:left-10 lg:left-10 xl:left-30 2xl:left-30 z-2">
                 <Image src={logo} alt={"lexi_logo"} width={65} className="mt-3" quality={80} loading={"lazy"}/>
             </div>

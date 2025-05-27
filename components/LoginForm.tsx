@@ -13,7 +13,7 @@ interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
   callbackUrl?: string;
 }
 
-export function LoginForm({ callbackUrl = "/", className, ...props }: LoginFormProps) {
+export function LoginForm({ callbackUrl = "/?login=success", className, ...props }: LoginFormProps) {
   const { data: session } = useSession();
   const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
@@ -29,9 +29,8 @@ export function LoginForm({ callbackUrl = "/", className, ...props }: LoginFormP
 
   function googleAuth(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
-    signIn("google", { callbackUrl });
+    signIn("google", { callbackUrl })
   }
-
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Toaster />

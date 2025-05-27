@@ -14,7 +14,7 @@ const Page = () => {
 
     async function sendEmail(e: any) {
         e.preventDefault();
-        const response = await axios.post("http://localhost:3000/api/send-review-email", { email: email })
+        const response = await axios.post("/api/send-review-email", { email: email })
             .then(res => {
                 console.log(res.data);
                 toast.success(res.data.message)

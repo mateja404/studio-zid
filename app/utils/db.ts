@@ -1,20 +1,11 @@
-import mongoose from "mongoose";
+const mysql = require('mysql2/promise');
 
-const connect = async () => {
-    const mongoUri = process.env.MONGO_URI;
+const pool = mysql.createPool({
+  host: 's53.unlimited.rs',
+  user: 'studiozi_developer',
+  password: 'Vodopad123',
+  database: 'studiozi_studiozid',
+  port: 3306
+});
 
-    if (!mongoUri) {
-        throw new Error("MONGO_URI is not defined in the environment variables");
-    }
-
-    if (mongoose.connections[0].readyState) return;
-
-    try {
-        await mongoose.connect(mongoUri);
-        console.log("MongoDB connection successfully established")
-    } catch (error) {
-        throw new Error("Error with connection");
-    }
-}
-
-export default connect;
+export default pool;

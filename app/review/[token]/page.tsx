@@ -29,9 +29,7 @@ const Page = () => {
         useEffect(() => {
             async function checkToken() {
                 try {
-                    const res = await axios.post("http://localhost:3000/api/check-review-token", { token: token });
-                    console.log("Success:", res.status);
-                    toast.success("Success")
+                    const res = await axios.post("/api/check-review-token", { token: token });
                 } catch (error) {
                     if (axios.isAxiosError(error)) {
                         toast.error(error.response?.data.message);
