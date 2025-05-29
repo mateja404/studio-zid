@@ -5,7 +5,7 @@ import specificniradovi from "@/public/SpecificniRadovi.png";
 
 const SpecificneUsluge = () => {
     return (
-        <section className="w-full h-[1000px] xl:h-[800px] 2xl:h-[800px] bg-black text-white relative flex flex-col border-3 border-l-transparent border-r-transparent border-t-[#88664d] border-b-[#88664d]">
+        <section id={"specusluge"} className="w-full h-[1000px] xl:h-[800px] 2xl:h-[800px] bg-black text-white relative flex flex-col border-3 border-l-transparent border-r-transparent border-t-[#88664d] border-b-[#88664d]">
             <Image src={specificniradovi} alt={"Specificni radovi bg"} className="w-full h-full object-cover absolute top-0 left-0 z-0" quality={80} loading={"lazy"}/>
             <div className="w-full h-1/2 relative">
                 <h1 className="max-sm:text-5xl text-7xl absolute top-[5%] left-[10%]">Specifične Usluge</h1>

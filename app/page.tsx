@@ -7,11 +7,14 @@ import SpecificneUsluge from "@/components/SpecificneUsluge";
 import OurProjects from "@/components/OurProjects";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
     <div className="w-screen h-screen overflow-x-hidden">
-      <Navbar/>
+      <Suspense>
+          <Navbar/>
+      </Suspense>
       <main className="w-full h-full">
           <HomePage/>
           <Reviews/>

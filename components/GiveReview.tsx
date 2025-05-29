@@ -31,9 +31,16 @@ const GiveReview = ({ className,  ...props }: React.ComponentPropsWithoutRef<"di
         }
         const response = await axios.post("/api/post-review", { username: session?.user?.name, role: role, description: description, rating: rating, userAvatar: session?.user?.image })
             .then(res => {
-                console.log(res.data);
+                if (res.status === 200) {
+                    toast.success(res.data.message);
+                    router.replace("/");
+                }
             })
-        console.log(role, description, rating, session?.user?.name);
+            .catch(error => {
+                if (error.response) {
+                    toast.error(error.response.data.message);
+                }
+            });
     }
     return (
         <div className={cn("flex flex-col gap-6", className)} {...props}>

@@ -34,8 +34,8 @@ const Reviews = () => {
     const currentTestimonials = testimonials.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
     return (
-        <section className="w-full bg-[#88664d] py-16 px-4">
-            <div className="max-w-7xl mx-auto grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-6 transition-all duration-700 ease-in-out">
+        <section id={"recenzije"} className="w-full bg-[#88664d] py-16 px-4">
+            <div className="max-w-7xl mx-auto grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-x-6 gap-y-12 transition-all duration-700 ease-in-out">
                 {currentTestimonials.map((review, index) => (
                     <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center">
                         <Image

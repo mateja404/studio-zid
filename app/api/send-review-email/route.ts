@@ -29,18 +29,21 @@ export async function POST(req: NextRequest) {
     const reviewLink = `https://studiozid.rs/review/${generatedReviewId}`;
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: 's53.unlimited.rs',
+      port: 465,
+      secure: true,
       auth: {
-        user: "murkoffcorp11@gmail.com",
-        pass: "bhbq gwwi ghuf rydu",
+        user: 'recenzije@studiozid.rs',
+        pass: 'Kokot@02',
       },
+      tls: { rejectUnauthorized: false }
     });
 
     await transporter.sendMail({
-      from: '"Milan Studio Zid" <maddison53@ethereal.email>',
+      from: '"Milan Studio Zid" <recenzije@studiozid.rs>',
       to: email,
       subject: "Studio Zid | Ocenite našu uslugu",
-      text: `Ocenite našu uslugu na sledećem linku: ${reviewLink}`,
+      text: `Ocenite našu uslugu na sledećem linku: ${reviewLink}`
     });
 
     return NextResponse.json(

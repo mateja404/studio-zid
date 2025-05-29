@@ -12,7 +12,7 @@ const OurProjects = () => {
             </div>
             <div className="w-full h-[30vw] flex items-center justify-center z-2">
                 <div className="w-[90vw] h-[100px] mb-50 bg-[#b98d5e] flex items-center justify-center  max-sm:bg-transparent max-sm:mt-90">
-                    <ul className="flex flex-row gap-x-30 max-sm:flex-col sm:flex-col max-sm:gap-y-10">
+                    <ul className="flex flex-row gap-x-30 max-sm:flex-col sm:flex-col max-sm:gap-y-10 xl:flex-row 2xl:flex-row">
                         <li className="flex flex-row gap-x-3 text-2xl text-black"><span className="w-[40px] h-[40px] bg-black rounded-full flex items-center justify-center"><MoveDownRight className="text-[#b98d5e]"/></span>Privatni Stanovi</li>
                         <li className="flex flex-row gap-x-3 text-2xl text-black"><span className="w-[40px] h-[40px] bg-black rounded-full flex items-center justify-center"><MoveDownRight className="text-[#b98d5e]"/></span>Privatne Kuće</li>
                         <li className="flex flex-row gap-x-3 text-2xl text-black"><span className="w-[40px] h-[40px] bg-black rounded-full flex items-center justify-center"><MoveDownRight className="text-[#b98d5e]"/></span>Lokali</li>

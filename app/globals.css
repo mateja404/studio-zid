@@ -121,6 +121,10 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .nav-item::after {
   content: '';
   display: block;

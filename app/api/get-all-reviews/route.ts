@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
     const conn = await pool.getConnection();
 
     const [allReviews] = await conn.query(
-      "SELECT username, userAvatar, rating, role, description, createdAt, updatedAt FROM reviews"
+      "SELECT id, username, userAvatar, rating, role, description, createdAt, updatedAt FROM reviews"
     );
 
     conn.release();
