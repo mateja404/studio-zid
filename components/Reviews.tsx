@@ -44,6 +44,8 @@ const Reviews = () => {
                             width={50}
                             height={50}
                             className="rounded-full mb-10 -mt-15 w-[80px] h-[80px]"
+                            loading={"lazy"}
+                            quality={87}
                         />
                         <h3 className="text-lg font-semibold text-gray-800">{review.username}</h3>
                         <p className="text-sm text-gray-500 mb-2">{review.role}</p>

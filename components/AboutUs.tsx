@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
-import onamabg from "@/public/OnamaBackground.png";
-import slikamene from "@/public/SlikaMene.png";
+import onamabg from "@/public/OnamaBackground.webp";
+import slikamene from "@/public/SlikaMene.webp";
 import { MoveDownRight } from "lucide-react";
 
 const AboutUs = () => {
@@ -17,21 +17,21 @@ const AboutUs = () => {
             </div>
             <div className="w-[100vw] flex h-[300px] z-2">
                 <div className="flex justify-center items-center flex-col mx-auto">
-                    <ul className="flex flex-col gap-y-5 xl:gap-x-5 xl:gap-0 xl:flex-row 2xl:gap-0 2xl:flex-row">
-                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+                    <ul className="flex flex-col max-sm:ml-5 gap-y-5 xl:gap-x-5 xl:gap-0 xl:flex-row 2xl:gap-0 2xl:flex-row">
+                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                             TRANSPARENTE CENE
                         </li>
-                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 "/>
+                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                             FIKSNI ROKOVI DEFINISANI PRE POČETKA RADOVA
                         </li>
-                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                             JASNA KOMUNIKACIJA
                         </li>
-                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+                        <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                            <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                             BESPLATNE KONSULTACIJE I SAVETI
                         </li>
                     </ul>
@@ -42,22 +42,22 @@ const AboutUs = () => {
                     <h1 className="text-white text-5xl 2xl:text-7xl mt-10 2xl:mt-7">KAKO RADIMO</h1>
                 </div>
             </div>
-            <div className="w-[100vw] flex h-[150px] z-2 absolute bottom-[19%] xl:bottom-0 2xl:bottom-0 mx-auto">
-                <ul className="flex flex-col gap-y-5 xl:gap-0 xl:flex-row 2xl:gap-0 2xl:flex-row">
-                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+            <div className="w-[100vw] flex h-[150px] justify-center items-center z-2 absolute bottom-[19%] xl:bottom-0 2xl:bottom-0 mx-auto">
+                <ul className="flex flex-col justify-center max-sm:items-start max-sm:ml-5 items-center gap-y-5 xl:gap-x-5 xl:gap-0 xl:flex-row 2xl:gap-0 2xl:flex-row">
+                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                         TRANSPARENTE CENE
                     </li>
-                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                         FIKSNI ROKOVI DEFINISANI PRE POČETKA RADOVA
                     </li>
-                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                         JASNA KOMUNIKACIJA
                     </li>
-                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-md">
-                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1"/>
+                    <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg">
+                        <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>
                         BESPLANE KONSULTACIJE I SAVETI
                     </li>
                 </ul>

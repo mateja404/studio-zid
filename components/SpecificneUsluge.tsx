@@ -1,7 +1,7 @@
 import React from 'react';
 import { MoveDownRight } from "lucide-react";
 import Image from "next/image";
-import specificniradovi from "@/public/SpecificniRadovi.png";
+import specificniradovi from "@/public/SpecificniRadovi.webp";
 
 const SpecificneUsluge = () => {
     return (
@@ -12,7 +12,7 @@ const SpecificneUsluge = () => {
             </div>
             <div className="w-full h-1/2 relative">
                 <div className="flex flex-col max-sm:-mt-80 sm:-mt-80 xl:flex-row xl:mt-[-100px] w-full h-[200px]">
-                    <ul className="flex flex-col sm:gap-y-3 max-sm:gap-y-10 xl:flex-row w-full pl-10 pr-10 gap-x-3">
+                    <ul className="flex flex-col sm:gap-y-3 max-sm:gap-y-10 xl:ml-5 xl:flex-row w-full pl-10 pr-10 gap-x-3">
                         <li className="flex flex-col gap-y-4 text-2xl"><span className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full max-sm:hidden sm:hidden xl:flex"><MoveDownRight/></span>Proračun potrebne količine boje za vaš prostor (koliko boje za m2)</li>
                         <li className="flex flex-col gap-y-4 text-2xl"><span className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full max-sm:hidden sm:hidden xl:flex"><MoveDownRight/></span>Pomoć pri odabiru zidnih tehnika</li>
                         <li className="flex flex-col gap-y-4 text-2xl"><span className="bg-black w-[40px] h-[40px] flex items-center justify-center rounded-full max-sm:hidden sm:hidden xl:flex"><MoveDownRight/></span>Konsultacije oko izbora najboljih materijala</li>
