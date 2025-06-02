@@ -51,6 +51,7 @@ const Navbar = () => {
                     <li className="relative"><Link className="text-[1.3rem] nav-item" href={"#naseusluge"} onClick={(e) => handleLinkClick(e, '#naseusluge')}>Naše usluge</Link></li>
                     <li className="relative"><Link className="text-[1.3rem] nav-item" href={"#recenzije"} onClick={(e) => handleLinkClick(e, '#recenzije')}>Recenzije</Link></li>
                     <li className="relative"><Link className="text-[1.3rem] nav-item" href={"#specusluge"} onClick={(e) => handleLinkClick(e, '#specusluge')}>Specifične usluge</Link></li>
+                    <li className="relative"><Link className="text-[1.3rem] nav-item" href={"/molerske-cene"}>Cenovnik</Link></li>
                 </ul>
             </div>
             <button onClick={() => toggleMenu()} className="md:hidden absolute mt-7 right-5 w-10 h-10 flex items-center justify-center rounded-xl transition-all duration-200 border border-[#88664d] group" aria-label="Toggle menu">
@@ -66,6 +67,7 @@ const Navbar = () => {
                     <li className={`w-[90%] h-10 bg-gradient-to-r ${pathname == "/" ? "from-[#88664d] via-[#88664d] to-[#88664d] border border-[#88664d]" : "bg-transparent"} pl-2 pt-2 pb-2 rounded-xl`}><Link onClick={(e) => handleLinkClick(e, '#naseusluge')} className="flex gap-x-2" href={"#naseusluge"}>Naše usluge</Link></li>
                     <li className={`w-[90%] h-10 bg-gradient-to-r ${pathname == "/" ? "from-[#88664d] via-[#88664d] to-[#88664d] border border-[#88664d]" : "bg-transparent"} pl-2 pt-2 pb-2 rounded-xl`}><Link onClick={(e) => handleLinkClick(e, '#recenzije')} className="flex gap-x-2" href={"#recenzije"}>Recenzije</Link></li>
                     <li className={`w-[90%] h-10 bg-gradient-to-r ${pathname == "/" ? "from-[#88664d] via-[#88664d] to-[#88664d] border border-[#88664d]" : "bg-transparent"} pl-2 pt-2 pb-2 rounded-xl`}><Link onClick={(e) => handleLinkClick(e, '#specusluge')} className="flex gap-x-2" href={"#specusluge"}>Specifične usluge</Link></li>
+                    <li className={`w-[90%] h-10 bg-gradient-to-r ${pathname == "/" ? "from-[#88664d] via-[#88664d] to-[#88664d] border border-[#88664d]" : "bg-transparent"} pl-2 pt-2 pb-2 rounded-xl`}><Link className="flex gap-x-2" href={"/molerske-cene"}>Cenovnik</Link></li>
                 </ul>
             </div>
         </nav>

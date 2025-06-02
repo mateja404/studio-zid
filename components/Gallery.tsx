@@ -12,7 +12,7 @@ import galerijabg from "@/public/GalrijaBAckground.png";
 
 const Gallery = () => {
     return (
-        <section className="w-full h-[1000px] md:hidden sm:hidden max-sm:hidden xl:h-[1000px] 2xl:h-[800px] bg-black text-white relative flex flex-col border-3 border-l-transparent border-r-transparent border-t-[#88664d] border-b-[#88664d]">
+        <section className="w-full h-[1000px] max-sm:hidden sm:hidden md:hidden xl:block xl:h-[1000px] 2xl:h-[800px] bg-black text-white relative flex flex-col border-3 border-l-transparent border-r-transparent border-t-[#88664d] border-b-[#88664d]">
             <div className="w-full h-1/2 text-center">
                 <Image src={galerijabg} alt={"Galerija pozadina"} className="w-full  object-cover absolute top-0 left-0 z-0" quality={80} loading={"lazy"}/>
                 <h1 className="text-8xl mt-2 text-black relative z-2">Galerija</h1>
