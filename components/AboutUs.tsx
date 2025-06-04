@@ -39,10 +39,10 @@ const AboutUs = () => {
             </div>
             <div className="w-full h-[140px] mb-100 flex items-center justify-center xl:absolute xl:mt-150 2xl:absolute 2xl:mt-150">
                 <div className="w-[90%] h-full bg-[#88664d] text-center">
-                    <h1 className="text-white text-5xl 2xl:text-7xl mt-10 2xl:mt-7">KAKO RADIMO</h1>
+                    <h1 className="text-white text-4xl 2xl:text-7xl mt-10 2xl:mt-7">KAKO RADIMO</h1>
                 </div>
             </div>
-            <div className="w-[100vw] flex h-[150px] justify-center items-center z-2 absolute bottom-[19%] xl:bottom-0 2xl:bottom-0 mx-auto">
+            <div className="w-[100vw] flex h-[150px] justify-center items-center z-2 absolute bottom-[10%] xl:bottom-0 2xl:bottom-0 mx-auto">
                 <ul className="flex flex-col justify-center max-sm:items-start max-sm:ml-5 items-center gap-y-5 xl:ml-15 xl:mr-15 xl:gap-x-5 xl:gap-0 xl:flex-row 2xl:gap-0 2xl:flex-row">
                     <li className="flex 2xl:inline-flex gap-x-4 text-white text-lg flex-col gap-y-4">
                         <MoveDownRight className="w-[30px] h-[30px] bg-slate-500/80 rounded-full p-1 max-sm:hidden sm:hidden lg:flex xl:flex 2xl:flex"/>

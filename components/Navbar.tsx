@@ -30,15 +30,19 @@ const Navbar = () => {
         setIsSidebarOpen(prevState => !prevState);
     }
 
-    const handleLinkClick = (e: any, href: any) => {
-        e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-            setIsActive(false);
-            setIsSidebarOpen(false);
-        }
-    };
+    const handleLinkClick = (e: any, href: string) => {
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+        const yOffset = -10;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+
+        setIsActive(false);
+        setIsSidebarOpen(false);
+    }
+};
+
     return (
         <nav className="w-full h-[100px] bg-black fixed z-20 text-white">
             <Toaster/>

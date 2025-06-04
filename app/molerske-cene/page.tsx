@@ -1,4 +1,7 @@
 import React from "react";
+import Navbar from "@/components/Navbar";
+import Calculator from "@/components/Calculator";
+import EstimatedSurface from "@/components/EstimatedSurface";
 
 const pricingData = [
     {
@@ -81,36 +84,44 @@ const pricingData = [
 
 const Page = () => {
     return (
-        <div className="min-h-screen flex flex-col items-center bg-gray-50 p-5">
-            <h1 className="text-5xl mb-10 text-gray-800">Cenovnik</h1>
-            {pricingData.map((section, index) => (
-                <div key={index} className="w-full mb-10">
-                    <h2 className="text-4xl text-yellow-800 mb-3 text-center">{section.category}</h2>
-                    {section.category !== "Poludisperzijom" &&
-                        section.category !== "Akrilna Vodoperiva Boja" &&
-                        section.category !== "Ostalo" &&
-                        section.category !== "Fasaderski Radovi" && (
-                            <p className="text-xl text-gray-600 text-center">
-                                * Cene su sa uračunatim materijalom{" "}
-                            </p>
+        <section className="m-0 relative pt-45">
+            <div className="absolute top-0">
+                <Navbar/>
+            </div>
+            <EstimatedSurface/>
+            <Calculator/>
+            <div className="min-h-screen flex flex-col items-center bg-gray-50 p-5 translate-y-10">
+                <h1 className="text-5xl mb-10 text-gray-800">Cenovnik</h1>
+                {pricingData.map((section, index) => (
+                    <div key={index} className="w-full mb-10">
+                        <h2 className="text-4xl text-yellow-800 mb-3 text-center">{section.category}</h2>
+                        {section.category !== "Poludisperzijom" &&
+                            section.category !== "Akrilna Vodoperiva Boja" &&
+                            section.category !== "Ostalo" &&
+                            section.category !== "Fasaderski Radovi" && (
+                                <p className="text-xl text-gray-600 text-center">
+                                    * Cene su sa uračunatim materijalom{" "}
+                                </p>
+                            )}
+                        {section.category === "Fasaderski Radovi" && (
+                            <p className="text-xl text-gray-600 text-center">* Cene su bez materijala </p>
                         )}
-                    {section.category === "Fasaderski Radovi" && (
-                        <p className="text-xl text-gray-600 text-center">* Cene su bez materijala </p>
-                    )}
-                    <ul className="list-none p-0">
-                        {section.items.map((item, idx) => (
-                            <li
-                                key={idx}
-                                className="flex justify-between py-2 border-b border-gray-300"
-                            >
-                                <span className="font-bold text-gray-800">{item.name}</span>
-                                <span className="text-brown-700">{item.price}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            ))}
-        </div>
+                        <ul className="list-none p-0">
+                            {section.items.map((item, idx) => (
+                                <li
+                                    key={idx}
+                                    className="flex justify-between py-2 border-b border-gray-300"
+                                >
+                                    <span className="font-bold text-gray-800">{item.name}</span>
+                                    <span className="text-brown-700">{item.price}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+                <p className="mt-1 text-md text-start text-red-500">SVE NAVEDENE CENE SU ZA KVADRATURE OD 100m2 ILI VEĆE. U CENU JE URAČUNATA STANDARDNA MERA ZAŠTITE NAMEŠTAJA I POKUĆSTVA.</p>
+            </div>
+        </section>
     );
 };
 
