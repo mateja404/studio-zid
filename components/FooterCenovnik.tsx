@@ -6,8 +6,10 @@ import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 const Footer = () => {
+    const router = useRouter();
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [question, setQuestion] = useState("");
@@ -36,10 +38,13 @@ const Footer = () => {
 
     const handleLinkClick = (e: any, href: any) => {
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
+        router.push("/");
+        setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 500);
     };
     return (
         <footer className="clear-both w-full h-[550px] max-sm:h-[1200px] relative flex flex-col">

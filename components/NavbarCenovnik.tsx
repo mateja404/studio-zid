@@ -1,51 +1,43 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from "next/image";
 import logo from "@/public/logo.png";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
-import toast, { Toaster } from "react-hot-toast";
+import {usePathname, useRouter, useSearchParams} from "next/navigation";
 
-const Navbar = () => {
+const NavbarCenovnik = () => {
     const pathname = usePathname();
     const searchParams = useSearchParams();
     const router = useRouter();
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isActive, setIsActive] = useState(false);
 
-    useEffect(() => {
-        const login = searchParams.get("login");
-        if (login === "success") {
-            toast.success("Uspešno ste se ulogovali")
-            const newUrl = window.location.pathname;
-            router.replace(newUrl);
-        }
-    }, [searchParams, router]);
-
     function toggleMenu() {
         setIsActive(prevState => !prevState);
         setIsSidebarOpen(prevState => !prevState);
     }
 
-    const handleLinkClick = (e: any, href: any) => {
+    const handleLinkClick = (e: any, href: string) => {
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-            setIsActive(false);
-            setIsSidebarOpen(false);
-        }
+        router.push("/");
+        setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 500);
+
+        setIsActive(false);
+        setIsSidebarOpen(false);
     };
     return (
         <nav className="w-full h-[100px] bg-black fixed z-20 text-white">
-            <Toaster/>
             <div className="absolute my-2 left-10 md:left-10 lg:left-10 xl:left-30 2xl:left-30 z-2">
                 <Image src={logo} alt={"lexi_logo"} width={65} className="mt-3" quality={80} loading={"lazy"} onClick={() => router.push("/")} />
             </div>
-            <div className="absolute my-9 md:right-10 lg:right-10 xl:right-20 2xl:right-30 2xl:flex xl:flex lg:flex md:flex sm:hidden max-sm:hidden flex">
+            <div
+                className="absolute my-9 md:right-10 lg:right-10 xl:right-20 2xl:right-30 2xl:flex xl:flex lg:flex md:flex sm:hidden max-sm:hidden flex">
                 <ul className="flex flex-row justify-between gap-17">
                     <li className="relative"><Link className="text-[1.3rem] nav-item" href={"#about"} onClick={(e) => handleLinkClick(e, '#about')}>O nama</Link></li>
                     <li className="relative"><Link className="text-[1.3rem] nav-item" href={"#naseusluge"} onClick={(e) => handleLinkClick(e, '#naseusluge')}>Naše usluge</Link></li>
@@ -61,7 +53,8 @@ const Navbar = () => {
                     <span className={`absolute w-5 h-[2px] bg-[#88664d] rounded-full transform transition-transform duration-300 ease-in-out ${isActive ? "-rotate-45" : "translate-y-1.5"}`}></span>
                 </div>
             </button>
-            <div className={isSidebarOpen ? "w-screen h-screen flex flex-col bg-black text-black z-5 text-white" : "hidden -translate-y-100 transition ease-in-out duration-300"}>
+            <div
+                className={isSidebarOpen ? "w-screen h-screen flex flex-col bg-black text-black z-5 text-white" : "hidden -translate-y-100 transition ease-in-out duration-300"}>
                 <ul className="mt-30 ml-10 gap-y-2 flex flex-col">
                     <li className={`w-[90%] h-10 bg-gradient-to-r ${pathname == "/" ? "from-[#88664d] via-[#88664d] to-[#88664d] border border-[#88664d]" : "bg-transparent"} pl-2 pt-2 pb-2 rounded-xl`}><Link onClick={(e) => handleLinkClick(e, '#about')} className="flex gap-x-2" href={"#about"}>O nama</Link></li>
                     <li className={`w-[90%] h-10 bg-gradient-to-r ${pathname == "/" ? "from-[#88664d] via-[#88664d] to-[#88664d] border border-[#88664d]" : "bg-transparent"} pl-2 pt-2 pb-2 rounded-xl`}><Link onClick={(e) => handleLinkClick(e, '#naseusluge')} className="flex gap-x-2" href={"#naseusluge"}>Naše usluge</Link></li>
@@ -74,4 +67,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavbarCenovnik;
