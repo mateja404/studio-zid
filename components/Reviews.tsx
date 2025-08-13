@@ -4,11 +4,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-const ITEMS_PER_PAGE = 3;
-
 const Reviews = () => {
     const [currentPage, setCurrentPage] = useState(0);
-    const [testimonials, setTestimonials] = useState<any[]>([]); // Ovdje koristimo any tip, ali možeš ga poboljšati kasnije
+    const [testimonials, setTestimonials] = useState<any[]>([]);
+    const [itemsPerPage, setItemsPerPage] = useState(3);
 
     useEffect(() => {
         async function getAllReviews() {
@@ -24,14 +23,29 @@ const Reviews = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentPage((prev) => (prev + 1) % Math.ceil(testimonials.length / ITEMS_PER_PAGE));
+            setCurrentPage((prev) => (prev + 1) % Math.ceil(testimonials.length / itemsPerPage));
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [testimonials]);
+    }, [testimonials, itemsPerPage]);
 
-    const startIndex = currentPage * ITEMS_PER_PAGE;
-    const currentTestimonials = testimonials.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth <= 640) {
+                setItemsPerPage(1);
+            } else {
+                setItemsPerPage(3);
+            }
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const startIndex = currentPage * itemsPerPage;
+    const currentTestimonials = testimonials.slice(startIndex, startIndex + itemsPerPage);
 
     return (
         <section id={"recenzije"} className="w-full bg-[#88664d] py-16 px-4">
