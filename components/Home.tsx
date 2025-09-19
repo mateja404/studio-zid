@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from "next/image";
-import home_imagee from "@/public/BandWMerdevine.png";
 import Link from "next/link";
 import { PhoneCall, MailPlus } from "lucide-react";
 

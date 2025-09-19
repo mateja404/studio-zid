@@ -39,11 +39,49 @@ export async function POST(req: NextRequest) {
       tls: { rejectUnauthorized: false }
     });
 
+        const html = 
+      `<table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; padding: 20px;">
+        <tr>
+          <td align="center">
+            <table width="600" cellpadding="0" cellspacing="0" style="background-color: #ffffff; border-radius: 8px; overflow: hidden; font-family: Arial, sans-serif;">
+              <tr>
+                <td style="background-color: #88664d; padding: 20px; color: white; text-align: center; font-size: 24px;">
+                  Studio Zid
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 30px; color: #333333; font-size: 16px;">
+                  <p>Poštovani <strong>${email}</strong>,</p>
+                  <p>Jako bi nam značilo da ostavite recenziju i podelite Vaš utisak o našem radu. Hvala unapred!</p>
+                  <div style="margin: 30px 0; text-align: center;">
+                    <a href="${reviewLink}" style="
+                      background-color: #88664d;
+                      color: white;
+                      padding: 12px 24px;
+                      text-decoration: none;
+                      border-radius: 5px;
+                      font-weight: bold;
+                      display: inline-block;
+                    ">Ostavi recenziju</a>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td style="background-color: #ecf0f1; padding: 15px; text-align: center; font-size: 12px; color: #888888;">
+                  © ${new Date().getFullYear()} Studio Zid. All rights reserved.
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>`
+    ;
+
     await transporter.sendMail({
       from: '"Milan Studio Zid" <recenzije@studiozid.rs>',
       to: email,
       subject: "Studio Zid | Ocenite našu uslugu",
-      text: `Ocenite našu uslugu na sledećem linku: ${reviewLink}`
+      html: html
     });
 
     return NextResponse.json(
