@@ -49,21 +49,24 @@ const Reviews = () => {
 
     return (
         <section id={"recenzije"} className="w-full bg-[#88664d] py-16 px-4">
-            <div className="max-w-7xl mx-auto grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-x-6 gap-y-12 transition-all duration-700 ease-in-out">
+            <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-6">
                 {currentTestimonials.map((review, index) => (
-                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center">
+                    <div
+                        key={index}
+                        className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center h-[400px] w-[400px]"
+                    >
                         <Image
                             src={review.userAvatar}
                             alt={`${review.username} profile picture`}
-                            width={50}
-                            height={50}
-                            className="rounded-full mb-10 -mt-15 w-[80px] h-[80px]"
-                            loading={"lazy"}
+                            width={80}
+                            height={80}
+                            className="rounded-full mb-6 w-[80px] h-[80px]"
+                            loading="lazy"
                             quality={87}
                         />
                         <h3 className="text-lg font-semibold text-gray-800">{review.username}</h3>
                         <p className="text-sm text-gray-500 mb-2">{review.role}</p>
-                        <p className="italic text-gray-700">"{review.description}"</p>
+                        <p className="italic text-gray-700 flex-grow">"{review.description}"</p>
                         <div className="flex justify-center mt-4">
                             {[...Array(review.rating)].map((_, i) => (
                                 <span key={i} className="text-yellow-500">★</span>
@@ -75,6 +78,7 @@ const Reviews = () => {
                     </div>
                 ))}
             </div>
+
         </section>
     );
 };

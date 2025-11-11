@@ -69,7 +69,6 @@ const GiveReview = ({ className,  ...props }: React.ComponentPropsWithoutRef<"di
                                             <SelectLabel>Uloga</SelectLabel>
                                             <SelectItem value="Klijent">Klijent</SelectItem>
                                             <SelectItem value="Klijentkinja">Klijentkinja</SelectItem>
-                                            <SelectItem value="Investitor">Investitor</SelectItem>
                                         </SelectGroup>
                                     </SelectContent>
                                 </Select>

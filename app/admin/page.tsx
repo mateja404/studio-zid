@@ -78,10 +78,10 @@ const Page = () => {
             <Toaster />
             <main>
                 <AdminNavBar/>
-                <section className="mt-10 mb-10 justify-items-center grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] place-items-center gap-y-5 -gap-x-20">
+                <section className="mt-10 mb-10 pl-10 pr-10 justify-center gap-3 grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] place-items-center gap-y-5 -gap-x-20">
                     {testimonials.length > 0 ? (
                         testimonials.map((testimonial: Testimonial) => (
-                            <div key={testimonial.id} className="w-[300px] min-h-[300px] rounded-xl bg-white border border-slate-200 relative">
+                            <div key={testimonial.id} className="w-full h-[400px] text-center rounded-xl bg-white border border-slate-200 relative">
                                 <Image
                                     src={testimonial.userAvatar}
                                     alt={"profilna slika"}
@@ -90,7 +90,7 @@ const Page = () => {
                                     priority={true}
                                     className="rounded-full absolute top-1 left-1/2 -translate-x-1/2"
                                 />
-                                <p className="absolute top-24 left-1/2 -translate-x-1/2">{testimonial.username}</p>
+                                <p className="absolute top-24 w-full">{testimonial.username}</p>
                                 <p className="absolute top-32 left-1/2 -translate-x-1/2 text-slate-500">{testimonial.role}</p>
                                 <p className="absolute top-40 left-1/2 -translate-x-1/2 w-[250px] text-center">{testimonial.description}</p>
                                 <div className="flex flex-row gap-x-4 absolute bottom-3 right-7">
