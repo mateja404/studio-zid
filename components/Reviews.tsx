@@ -51,10 +51,7 @@ const Reviews = () => {
         <section id={"recenzije"} className="w-full bg-[#88664d] py-16 px-4">
             <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-6">
                 {currentTestimonials.map((review, index) => (
-                    <div
-                        key={index}
-                        className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center h-[400px] w-[400px]"
-                    >
+                    <div key={index} className="bg-white rounded-xl shadow-lg p-6 text-center flex flex-col items-center h-[400px] w-[400px]">
                         <Image
                             src={review.userAvatar}
                             alt={`${review.username} profile picture`}
@@ -66,7 +63,9 @@ const Reviews = () => {
                         />
                         <h3 className="text-lg font-semibold text-gray-800">{review.username}</h3>
                         <p className="text-sm text-gray-500 mb-2">{review.role}</p>
-                        <p className="italic text-gray-700 flex-grow">"{review.description}"</p>
+                        <div className="overflow-hidden">
+                            <p className="italic text-gray-700 flex-grow">"{review.description}"</p>
+                        </div>
                         <div className="flex justify-center mt-4">
                             {[...Array(review.rating)].map((_, i) => (
                                 <span key={i} className="text-yellow-500">★</span>
